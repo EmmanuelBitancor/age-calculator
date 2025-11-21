@@ -1,0 +1,266 @@
+/* 1. Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,800;1,400;1,800&display=swap');
+
+/* 2. Global Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 3. The Main Card */
+.card {
+  background: white;
+  padding: 3.5rem;
+  border-radius: 25px 25px 100px 25px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  width: 600px;
+  max-width: 90%;
+}
+
+/* 4. Header (Title + Toggle Button) */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+h1 {
+  font-size: 1.2rem;
+  color: #151515;
+  margin: 0;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 1px solid #854dff;
+  color: #854dff;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: #854dff;
+  color: white;
+}
+
+/* 5. Inputs Section */
+p {
+  color: #716f6f;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 120px; /* Fixed width for Day/Month/Year */
+}
+
+/* Special class for the single Age input */
+.input-group.full-width {
+  width: 100%;
+}
+
+label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: #716f6f;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  padding: 12px 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  font-size: 32px;
+  font-weight: bold;
+  width: 100%;
+  outline: none;
+  color: #151515;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #854dff;
+  caret-color: #854dff;
+}
+
+input::placeholder {
+  color: #bdaebf;
+}
+
+/* Remove spinner arrows from number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 6. Error Handling */
+.error-msg {
+  color: #ff5757;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* 7. The Divider & Action Button */
+.calc-btn {
+  background-color: #854dff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  
+  /* Position the button nicely relative to inputs */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto; /* Pushes button to the right */
+}
+
+.calc-btn:hover {
+  background-color: #151515;
+}
+
+.icon {
+  padding-bottom: 5px; 
+}
+
+/* 8. Results Section */
+.result {
+  margin-top: 10px;
+}
+
+.result-line {
+  font-size: 4.5rem; /* Big text */
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.1;
+  color: #151515; 
+}
+
+.result-line span {
+  color: #854dff; 
+}
+
+/* Reverse Mode (Year Result) Styling */
+.date-result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.sub-text {
+  font-size: 1.2rem;
+  font-weight: normal;
+  font-style: normal;
+  color: #716f6f;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-text {
+  font-size: 4rem; /* Big year number */
+  color: #854dff;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* 9. Reset Button */
+.reset-btn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: #f3f3f3;
+  color: #716f6f;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.reset-btn:hover {
+  background: #e0e0e0;
+  color: #151515;
+}
+
+/* 10. Mobile Responsiveness */
+@media (max-width: 600px) {
+  .card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px 20px 80px 20px;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .input-row {
+    gap: 15px;
+  }
+
+  .input-group {
+    width: 100%; 
+  }
+  
+  input {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+
+  label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .calc-btn {
+    margin: 2rem auto;
+    width: 65px;
+    height: 65px;
+    font-size: 28px;
+  }
+
+  .result-line {
+    font-size: 14vw; 
+  }
+
+  .highlight-text {
+    font-size: 3rem;
+  }
+}
